@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:rich="http://richfaces.org/rich">
+
+	<h:head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Novo Estudante RICHFACES</title>
+	</h:head>
+
+	<h:body>
+
+		<div id="container">
+
+			<h:messages globalOnly="true" />
+
+			<rich:panel>
+				<f:facet name="header">
+					<h:outputText value="Novo Estudante RichFaces" />
+				</f:facet>
+
+				<h:form id="form" style="margin-top: 10px;">
+					<h:panelGrid columns="3">
+
+						<h:outputLabel>Nome</h:outputLabel>
+						<h:inputText value="#{estudanteController.estudante.nome}"
+							id="nome">
+							<f:validateLength minimum="3" maximum="50" />
+							<rich:placeholder value="Insira o seu nome"></rich:placeholder>
+							<f:validateRequired for="nome" />
+						</h:inputText>
+						<h:message for="nome" />
+
+
+						<h:outputLabel>Email:</h:outputLabel>
+						<h:inputText value="#{estudanteController.estudante.email}"
+							id="email">
+							<f:validateLength minimum="3" maximum="50" />
+							<rich:placeholder value="Insira o seu email"></rich:placeholder>
+							<f:validateRequired for="email" />
+						</h:inputText>
+						<h:message for="email" />
+
+						<h:outputLabel />
+						<h:commandButton value="Cadastrar"
+							action="#{estudanteController.novoEstudante()}" />
+
+					</h:panelGrid>
+				</h:form>
+			</rich:panel>
+
+				<div style="clear: both;"></div>
+
+				<p>
+					<h:outputLink value="listar-estudantes-rich.xhtml">De volta a lista</h:outputLink>
+				</p>
+
+		</div>
+	</h:body>
+
+</ui:composition>

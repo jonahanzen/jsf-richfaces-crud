@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:rich="http://richfaces.org/rich">
+	<h:head></h:head>
+
+	<h:body>
+		
+		<h:form>
+
+		<h:commandButton value="Cadastrar"
+							action="#{estudanteController.estudanteForm()}" />
+		
+		
+
+			<rich:dataTable value="#{estudanteController.todosEstudantes()}"
+				var="estudante">
+
+				<rich:column>
+					<f:facet name="header">Id</f:facet>
+					#{estudante.id}
+				</rich:column>
+
+				<rich:column>
+					<f:facet name="header">Nome</f:facet>
+					#{estudante.nome}
+				</rich:column>
+
+				<rich:column>
+					<f:facet name="header">Email</f:facet>
+					#{estudante.email}
+				</rich:column>
+
+				<rich:column>
+					<!-- the column header -->
+					<f:facet name="header">Alterar</f:facet>
+					<!--  the value for each row -->
+					<h:commandLink value="Alterar"
+						action="#{estudanteController.consultarEstudante(estudante.id)}" />
+				</rich:column>
+				<rich:column>
+					<f:facet name="header">Remover</f:facet>
+					<h:commandLink value="Remover"
+						onclick="if (!confirm('Voce tem certeza que deseja remover este estudante?')) return false"
+						action="#{estudanteController.removerEstudante(estudante.id)}" />
+
+				</rich:column>
+			</rich:dataTable>
+
+		</h:form>
+
+
+
+	</h:body>
+
+</ui:composition>
