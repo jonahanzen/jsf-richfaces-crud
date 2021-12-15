@@ -3,11 +3,11 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>br.com</groupId>
-	<artifactId>jsf</artifactId>
+	<artifactId>jsfrichfaces</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<name>jsfcrud</name>
-	<description>CRUD com JSF, Wildfly, Hibernate, JakartaEE </description>
+	<description>CRUD com JSF, RichFaces, Wildfly, Hibernate, JakartaEE </description>
 
 	<dependencies>
 		<dependency>
